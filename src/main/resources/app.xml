@@ -35,4 +35,30 @@
         <property name="numeroCanciones" value="4" />
     </bean>
     
-</beans>
+     
+    <!-- Inyección de beans de forma interna -->
+    <bean id="raulGarcia" class="com.pabloct.springbase.model.Musico">
+        <property name="nombres" value="Raul" />
+        <property name="apellidos" value="Garcia Zarate" />
+        <property name="numeroCanciones" value="100" />
+        <property name="instrumento">
+            <bean class="com.pabloct.springbase.model.Instrumento">
+                <property name="nombre" value="Guitarra Acustica" />
+                <property name="marca" value="Falcon" />
+            </bean>
+        </property>
+    </bean>
+    
+    <!-- Inyección de colecciones -->
+    <bean id="guitarra" class="com.pabloct.springbase.model.Guitarra"/>
+    <bean id="piano" class="com.pabloct.springbase.model.Piano"/>
+        <bean id="musico" class="com.pabloct.springbase.model.Musico">
+            <property name="instrumentos">
+                <list>
+                    <ref bean="guitarra"/>
+                    <ref bean="piano"/>
+                </list>
+            </property>
+    </bean>
+    
+    </beans>
