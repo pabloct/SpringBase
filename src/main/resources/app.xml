@@ -50,15 +50,28 @@
     </bean>
     
     <!-- Inyección de colecciones -->
-    <bean id="guitarra" class="com.pabloct.springbase.model.Guitarra"/>
-    <bean id="piano" class="com.pabloct.springbase.model.Piano"/>
-        <bean id="musico" class="com.pabloct.springbase.model.Musico">
-            <property name="instrumentos">
-                <list>
-                    <ref bean="guitarra"/>
-                    <ref bean="piano"/>
-                </list>
-            </property>
+    <bean id="guitarra" class="com.pabloct.springbase.model.Guitarra">
+        <property name="nombre" value="Criolla" />
+        <property name="marca" value="Falcon" />
+        <property name="tipo" value="cuerda" />
+        <property name="numeroCuerdas" value="6" />
+    </bean>
+    <bean id="piano" class="com.pabloct.springbase.model.Piano">
+        <property name="nombre" value="Clasica" />
+        <property name="marca" value="Yamaha" />
+        <property name="tipo" value="teclado" />
+        <property name="numeroOctavas" value="8" />
+    </bean>
+    <bean id="adrian" class="com.pabloct.springbase.model.Musico">
+        <property name="nombres" value="Adrian" />
+        <property name="apellidos" value="Campos Liberato" />
+        <property name="numeroCanciones" value="17" />
+        <property name="instrumentos">
+            <list>
+                <ref bean="guitarra"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
     </bean>
     
     </beans>
