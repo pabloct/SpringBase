@@ -1,6 +1,6 @@
 package com.pabloct.springbase;
 
-import com.pabloct.springbase.model.Persona;
+import com.pabloct.springbase.beans.model.Persona;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

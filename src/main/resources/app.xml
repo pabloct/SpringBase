@@ -5,39 +5,43 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 ">
 
-    <bean id="persona" class="com.pabloct.springbase.model.Persona">
+    <bean id="persona" class="com.pabloct.springbase.model.model.Persona">
         <property name="nombres" value="Pablo Arturo" />
         <property name="apellidos" value="Campos Tapia" />
     </bean>
     
     
     <!-- Valores Constructor -->
-    <bean id="jara" class="com.pabloct.springbase.model.Musico" >
+    <bean id="jara" class="com.pabloct.springbase.model.model.Musico" >
         <constructor-arg value="5" />
     </bean>
     
     <!-- Referencia en Constructor -->
-    <bean id="instrumento" class="com.pabloct.springbase.model.Instrumento">
+    <bean id="instrumento" class="com.pabloct.springbase.model.model.Instrumento">
         <property name="nombre" value="Guitarra" />
         <property name="marca" value="Fender" />
     </bean>
     
-    <bean id="slash" class="com.pabloct.springbase.model.Musico">
+    <bean id="slash" class="com.pabloct.springbase.model.model.Musico">
         <constructor-arg value="37"/>
         <constructor-arg ref="instrumento"/>
     </bean>
 
 
     <!-- Valores a través de Setter -->
-    <bean id="lennon" class="com.pabloct.springbase.model.Musico">
+    <bean id="lennon" class="com.pabloct.springbase.model.model.Musico">
         <property name="nombres" value="Jhon" />
         <property name="apellidos" value="Lennon" />
         <property name="numeroCanciones" value="4" />
+        <!-- Inyectar Referencia via de Setter (5) -->
+        
+        <property name="instrumento" ref="instrumento" />     
+        
     </bean>
     
      
-    <!-- Inyección de beans de forma interna -->
-    <bean id="raulGarcia" class="com.pabloct.springbase.model.Musico">
+    <!-- Inyección de beans de forma interna (7)-->
+    <bean id="raulGarcia" class="com.pabloct.springbase.model.model.Musico">
         <property name="nombres" value="Raul" />
         <property name="apellidos" value="Garcia Zarate" />
         <property name="numeroCanciones" value="100" />
@@ -49,20 +53,20 @@
         </property>
     </bean>
     
-    <!-- Inyección de colecciones -->
-    <bean id="guitarra" class="com.pabloct.springbase.model.Guitarra">
+    <!-- referencia a listado Inyección de colecciones (8) -->
+    <bean id="guitarra" class="com.pabloct.springbase.model.model.Guitarra">
         <property name="nombre" value="Criolla" />
         <property name="marca" value="Falcon" />
         <property name="tipo" value="cuerda" />
         <property name="numeroCuerdas" value="6" />
     </bean>
-    <bean id="piano" class="com.pabloct.springbase.model.Piano">
+    <bean id="piano" class="com.pabloct.springbase.model.model.Piano">
         <property name="nombre" value="Clasica" />
         <property name="marca" value="Yamaha" />
         <property name="tipo" value="teclado" />
         <property name="numeroOctavas" value="8" />
     </bean>
-    <bean id="adrian" class="com.pabloct.springbase.model.Musico">
+    <bean id="adrian" class="com.pabloct.springbase.model.model.Musico">
         <property name="nombres" value="Adrian" />
         <property name="apellidos" value="Campos Liberato" />
         <property name="numeroCanciones" value="17" />
@@ -74,4 +78,26 @@
         </property>
     </bean>
     
-    </beans>
+    <!-- Inyección de valorers NULL (9)-->
+    <bean id="james" class="com.pabloct.springbase.model.model.Musico">
+        <property name="nombres" value="James" />
+        <property name="apellidos" value="Morrison" />
+        <property name="numeroCanciones" value="7" />
+        <property name="instrumentos"><null/></property>
+    </bean>
+
+
+    <!-- referencia automatica: Inyección automática por nombre (10) -->
+    <bean id="noel" class="com.pabloct.springbase.model.model.Musico" autowire="byName" />
+    
+    <!-- referencia automatica: Inyección automática por tipo (11) -->
+    <bean id="bajo" class="com.pabloct.springbase.model.model.Instrumento" primary="true">
+        <property name="nombre" value="Bajo" />
+        <property name="marca" value="Yamaha" />
+    </bean>
+    <bean id="cerati" class="com.pabloct.springbase.model.model.Musico" autowire="byType" />
+    
+    <!-- referencia automatica: Inyección automática por constructor (12) -->
+    <bean id="charly" class="com.pabloct.springbase.model.model.Musico" autowire="constructor" />
+    
+</beans>  

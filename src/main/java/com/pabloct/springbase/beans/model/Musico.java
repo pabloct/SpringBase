@@ -1,4 +1,4 @@
-package com.pabloct.springbase.model;
+package com.pabloct.springbase.beans.model;
 
 import java.util.List;
 
@@ -7,6 +7,10 @@ public class Musico extends Persona {
     private int numeroCanciones;
     private Instrumento instrumento;
     private List<Instrumento> instrumentos;
+
+    public Musico(Instrumento instrumento) {
+        this.instrumento = instrumento;
+    }
 
     public Musico(int numeroCanciones) {
         this.numeroCanciones = numeroCanciones;

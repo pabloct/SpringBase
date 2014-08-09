@@ -1,9 +1,9 @@
 package com.pabloct.springbase.beans;
 
-import com.pabloct.springbase.model.Guitarra;
-import com.pabloct.springbase.model.Instrumento;
-import com.pabloct.springbase.model.Musico;
-import com.pabloct.springbase.model.Piano;
+import com.pabloct.springbase.beans.model.Guitarra;
+import com.pabloct.springbase.beans.model.Instrumento;
+import com.pabloct.springbase.beans.model.Musico;
+import com.pabloct.springbase.beans.model.Piano;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -104,23 +104,29 @@ public class AppBean {
     public static void autoWireByName(ApplicationContext context) {
         Musico musico = (Musico) context.getBean("noel");
 
-        System.out.println("------------------------------------------");
+        System.out.println("------------------- por nombre -----------------------");
         System.out.println("Nombre de instrumento: " + musico.getInstrumento().getNombre());
         System.out.println("Marca de instrumento: " + musico.getInstrumento().getMarca());
     }
     
     public static void autoWireByType(ApplicationContext context) {
-        System.out.println("------------------------------------------");
+        System.out.println("------------ por tipo -------------------------");
         Musico cerati = (Musico) context.getBean("cerati");
         System.out.println("Nombre de instrumento: " + cerati.getInstrumento().getNombre());
         System.out.println("Marca de instrumento: " + cerati.getInstrumento().getMarca());
     }
     
     public static void autoWireByConstructor(ApplicationContext context) {
-        System.out.println("------------------------------------------");
+        System.out.println("------------ por constructor ----------------------");
         Musico charly = (Musico) context.getBean("charly");
         System.out.println("Nombre de instrumento: " + charly.getInstrumento().getNombre());
         System.out.println("Marca de instrumento: " + charly.getInstrumento().getMarca());
     }
     
+    public static void autoWire(ApplicationContext context) {
+        System.out.println("------------ por constructor ----------------------");
+        Musico charly = (Musico) context.getBean("charly");
+        System.out.println("Nombre de instrumento: " + charly.getInstrumento().getNombre());
+        System.out.println("Marca de instrumento: " + charly.getInstrumento().getMarca());
+    }
 }

@@ -1,4 +1,4 @@
-package com.pabloct.springbase.model;
+package com.pabloct.springbase.beans.model;
 public class Guitarra extends Instrumento{
     private int numeroCuerdas;
 
