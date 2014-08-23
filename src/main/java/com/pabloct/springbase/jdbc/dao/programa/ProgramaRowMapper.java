@@ -1,4 +1,4 @@
-package com.pabloct.springbase.jdbc.dao;
+package com.pabloct.springbase.jdbc.dao.programa;
 
 import com.pabloct.springbase.jdbc.model.Programa;
 import java.sql.ResultSet;

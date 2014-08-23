@@ -14,6 +14,6 @@
     </bean>
     
     
-    <bean id="programaDAO" class="com.pabloct.springbase.jdbc.dao.ProgramaDAOJ" autowire="byType"/>
+    <bean id="programaDAO" class="com.pabloct.springbase.jdbc.dao.programa.ProgramaDAOJ" autowire="byType"/>
       
 </beans>

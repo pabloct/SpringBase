@@ -4,6 +4,8 @@
  */
 package com.pabloct.springbase.jdbc.dao;
 
+import com.pabloct.springbase.jdbc.dao.programa.ProgramaRowMapper;
+
 
 public class ProgramaRowMapperImpl extends ProgramaRowMapper {
     
