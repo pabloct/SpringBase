@@ -1,10 +1,10 @@
 package com.pabloct.springbase.jdbc;
 
 import com.pabloct.springbase.jdbc.dao.programa.ProgramaDAO;
-import com.pabloct.springbase.jdbc.dao.programa.ProgramaRowMapper;
+//import com.pabloct.springbase.jdbc.dao.programa.ProgramaRowMapper;
 import com.pabloct.springbase.jdbc.model.Programa;
 import java.util.List;
-import org.springframework.cglib.core.Local;
+//import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,22 +13,22 @@ public class AppJdbc {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("jdbc_db.xml");
 
-        System.out.println("Contenido Actual:");
+        System.out.println("Contenido Actual(id,nombre,descripcion,codigo):");
         AppJdbc.doList(context);
-        System.out.println("Añadimos un registro....");
-        AppJdbc.doSave(context);
-        System.out.println("Contenido luego de añadir:");
-        AppJdbc.doList(context);
-        System.out.println("Actualizamos un registro....");
-        AppJdbc.doSave(context);
-        System.out.println("Contenido luego de actualizar:");
-        AppJdbc.doList(context);
-        System.out.println("Buscar registro codigo=4222:");
-        AppJdbc.doFind(context);
-        System.out.println("Borrar registro codigo=333, el ultimo actualizado:");
-        AppJdbc.doFind(context);
-        System.out.println("Contenido luego de borrar:");
-        AppJdbc.doList(context);
+//        System.out.println("Añadimos un registro....");
+//        AppJdbc.doSave(context);
+//        System.out.println("Contenido luego de añadir:");
+//        AppJdbc.doList(context);
+//        System.out.println("Actualizamos un registro....");
+//        AppJdbc.doUpdate(context);
+//        System.out.println("Contenido luego de actualizar:");
+//        AppJdbc.doList(context);
+//        System.out.println("Buscar registro codigo=4222:");
+//        AppJdbc.doFind(context);
+//        System.out.println("Borrar registro codigo=333, el ultimo actualizado:");
+//        AppJdbc.doDelete(context);
+//        System.out.println("Contenido luego de borrar:");
+//        AppJdbc.doList(context);
     }
 
     public static void doDelete(ApplicationContext context) {
@@ -61,7 +61,7 @@ public class AppJdbc {
     public static void doFind(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         //Programa programa = programaDAO.find(1l);
-        Programa programa = programaDAO.find("4222");
+        Programa programa = programaDAO.find("333");
         System.out.println(programa.getCodigo() + ", " + programa.getNombre() + ", " + programa.getDescripcion());
     }
 
@@ -70,7 +70,7 @@ public class AppJdbc {
         List<Programa> programas = programaDAO.all();
 
         for (Programa programa : programas) {
-            System.out.println(programa.getCodigo() + ", " + programa.getNombre() + ", " + programa.getDescripcion());
+            System.out.println(programa.getId()+ ", " + programa.getNombre() + ", " + programa.getDescripcion()+", " + programa.getCodigo() );
         }
     }
 }
