@@ -8,11 +8,13 @@ import org.springframework.jdbc.core.RowMapper;
 public class CursoRowMapper implements RowMapper<Curso> {
 
     public Curso mapRow(ResultSet rs, int i) throws SQLException {
-        Curso programa = new Curso();
-        //curso.setId(rs.getLong(1));
-        //curso.setNombre(rs.getString(2));
-       // curso.setDescripcion(rs.getString(3));
-        
-        return programa;
+        Curso curso = new Curso();
+        curso.setId(rs.getLong(1));
+        curso.setNombre(rs.getString(2));
+        curso.setCodigo(rs.getString(3));
+        curso.setFechaInicio(rs.getDate(4));
+        //curso.getPrograma(rs.getLong(5));
+
+        return curso;
     }
 }
