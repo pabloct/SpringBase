@@ -29,13 +29,13 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
     }
 
     public void save(Curso curso) {
-        String sql = "insert into curso (nombre,codigo,fechaInicio,idPrograma)values(?, ?, ?,?)";
+        String sql = "insert into curso (nombre,codigo,id_programa)values(?, ?, ?)";
 
         try {
             this.getJdbcTemplate().update(sql, new Object[]{
                 curso.getNombre(),
                 curso.getCodigo(),
-                curso.getFechaInicio(),
+                //curso.getFechaInicio(),
                 curso.getIdPrograma()
             });
         } catch (DataAccessException e) {
