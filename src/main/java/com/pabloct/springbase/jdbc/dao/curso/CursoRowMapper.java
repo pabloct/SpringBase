@@ -13,8 +13,7 @@ public class CursoRowMapper implements RowMapper<Curso> {
         curso.setNombre(rs.getString(2));
         curso.setCodigo(rs.getString(3));
         curso.setFechaInicio(rs.getDate(4));
-        //curso.getPrograma(rs.getLong(5));
-
+        curso.setIdPrograma(rs.getLong(5));
         return curso;
     }
 }

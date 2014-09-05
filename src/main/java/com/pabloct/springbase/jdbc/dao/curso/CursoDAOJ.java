@@ -29,13 +29,14 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
     }
 
     public void save(Curso curso) {
-        String sql = "insert into curso (nombre,descripcion, codigo)values(?, ?, ?)";
+        String sql = "insert into curso (nombre,codigo,fechaInicio,idPrograma)values(?, ?, ?,?)";
 
         try {
             this.getJdbcTemplate().update(sql, new Object[]{
                 curso.getNombre(),
-             //   curso.getDescripcion(),
-                curso.getCodigo()
+                curso.getCodigo(),
+                curso.getFechaInicio(),
+                curso.getIdPrograma()
             });
         } catch (DataAccessException e) {
             System.err.println("ERROR: " + e.getMessage());
@@ -43,14 +44,14 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
     }
 
     public void update(Curso curso) {
-        String sql = "update curso set nombre=?,descripcion=?,codigo=? where id=?";
+        String sql = "update curso set nombre=?,codigo=?,fechaInicio=?,idPrograma=? where id=?";
 
         try {
             this.getJdbcTemplate().update(sql, new Object[]{
                 curso.getNombre(),
-               // curso.getDescripcion(),
                 curso.getCodigo(),
-                curso.getId()
+                curso.getFechaInicio(),
+                curso.getIdPrograma()
             });
         } catch (DataAccessException e) {
             System.err.println("ERROR: " + e.getMessage());

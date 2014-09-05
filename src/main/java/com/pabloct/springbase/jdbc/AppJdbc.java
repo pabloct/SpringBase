@@ -17,14 +17,15 @@ public class AppJdbc {
         AppJdbc.doList(context);
         //System.out.println("Añadimos un registro....");
         //AppJdbc.doSave(context);
-        System.out.println("Contenido luego de añadir:");
-        AppJdbc.doList(context);
-        //System.out.println("Actualizamos un registro....");
+
+        //System.out.println("Contenido luego de añadir:");
+        //AppJdbc.doList(context);
+//System.out.println("Actualizamos un registro....");
         //AppJdbc.doUpdate(context);
         //System.out.println("Contenido luego de actualizar:");
         //AppJdbc.doList(context);
-        System.out.println("Buscar registro codigo=333333:");
-        AppJdbc.doFind(context);
+        //System.out.println("Buscar registro codigo=333333:");
+        //AppJdbc.doFind(context);
         //System.out.println("Borrar registro codigo=333333.....");
         //AppJdbc.doDelete(context);
         //System.out.println("Contenido luego de borrar:");
@@ -34,14 +35,14 @@ public class AppJdbc {
     public static void doDelete(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
 
-        Programa programa = programaDAO.find("333333");
+        Programa programa = programaDAO.find("156");
         programaDAO.delete(programa.getId());
     }
 
     public static void doUpdate(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
 
-        Programa programa = programaDAO.find("333333");
+        Programa programa = programaDAO.find("156");
         programa.setNombre("Desarrollador de Aplicaciones Web con Java");
         programa.setDescripcion("El presente programa integral tiene como finalidad el uso de la tecnología Java para el desarrollo de aplicaciones Web empresariales.");
 
@@ -62,7 +63,7 @@ public class AppJdbc {
     public static void doFind(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         //Programa programa = programaDAO.find(1l);
-        Programa programa = programaDAO.find("333333");
+        Programa programa = programaDAO.find("156");
         System.out.println(programa.getId() + "//" + programa.getNombre() + "//" + programa.getDescripcion() + "//" + programa.getCodigo());
     }
 
