@@ -44,14 +44,16 @@ public class CursoDAOJ extends JdbcDaoSupport implements CursoDAO {
     }
 
     public void update(Curso curso) {
-        String sql = "update curso set nombre=?,codigo=?,fechaInicio=?,idPrograma=? where id=?";
+        String sql = "update curso set nombre=?,id_programa=? where id=?";
+        //String sql = "update curso set nombre=?,codigo=?,id_programa=? where id=?";
 
         try {
             this.getJdbcTemplate().update(sql, new Object[]{
                 curso.getNombre(),
-                curso.getCodigo(),
-                curso.getFechaInicio(),
-                curso.getIdPrograma()
+                //curso.getCodigo(),
+                //curso.getFechaInicio(),
+                curso.getIdPrograma(),
+                curso.getId()
             });
         } catch (DataAccessException e) {
             System.err.println("ERROR: " + e.getMessage());

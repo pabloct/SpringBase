@@ -6,6 +6,7 @@ import com.pabloct.springbase.orm.model.Programa;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 @Repository("programaDAO")
@@ -18,7 +19,7 @@ public class ProgramaDAOH extends BaseHibernateDAO implements ProgramaDAO {
 
     public Programa find(Long id) {
         Criteria criteria = this.getSession().createCriteria(Programa.class);
-        criteria.add(Restrictions.eq("id", id));
+        criteria.add(Restrictions.eq("id", id)); 
         return (Programa) criteria.uniqueResult();
     }
 
@@ -31,8 +32,14 @@ public class ProgramaDAOH extends BaseHibernateDAO implements ProgramaDAO {
     }
 
     public void delete(Programa id) {
-        this.getSession().delete(id);
-    }   
+        
+        try {
+            this.getSession().delete(id.getId());
+
+        } catch (DataAccessException e) {
+            System.err.println("ERROR: " + e.getMessage());
+        }
+    }
 
     public Programa find(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
